@@ -8,7 +8,7 @@ Split::~Split()
 {
 }
 
-string* Split::splitOperations(string str,string token[])
+string* Split::splitOperations(string str, string token[])
 {
 	int i = 0;
 	while ((beg = str.find_first_not_of(delims, pos)) != string::npos)
@@ -20,6 +20,18 @@ string* Split::splitOperations(string str,string token[])
 		else {
 			token[i] = str.substr(beg - 1, pos - beg + 1);
 		}
+		i++;
+	}
+	return token;
+}
+
+string* Split::splitOperationsWithoutSeperator(string str, string token[])
+{
+	int i = 0;
+	while ((beg = str.find_first_not_of(delims, pos)) != string::npos)
+	{
+		pos = str.find_first_of(delims, beg + 1);
+		token[i] = str.substr(beg, pos - beg);
 		i++;
 	}
 	return token;
