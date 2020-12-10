@@ -10,5 +10,5 @@ public:
 	Split();
 	~Split();
 	string* splitOperations(string,string[]);
+	string* splitOperationsWithoutSeperator(string,string[]);
 };
-
